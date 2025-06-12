@@ -4,6 +4,10 @@
   "repositories": [
     "arieki/renovate-test"
   ],
+  "onboarding": false,
+  "platform": "github",
+  "username": "renovate-release",
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "customManagers": [
     {
       "customType": "regex",
