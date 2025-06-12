@@ -1,0 +1,20 @@
+{
+  "fluent-bit": {
+    "chart": "fluent-bit",
+    "repo": "https://fluent.github.io/helm-charts",
+    "version": "0.48.10",
+    "appVersion": "3.2.10"
+  },
+  "traefik": {
+    "chart": "traefik",
+    "repo": "https://helm.traefik.io/traefik",
+    "version": "34.5.0",
+    "appVersion": "v3.3.1"
+  },
+  "external-dns": {
+    "chart": "external-dns",
+    "repo": "oci://registry-1.docker.io/bitnamicharts",
+    "version": "8.8.3",
+    "appVersion": "0.17.0"
+  }
+}

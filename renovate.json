@@ -1,0 +1,28 @@
+{
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)dependencies\\.json/"],
+      "matchStringsStrategy": "recursive",
+      "matchStrings": [
+        "\"(?<depName>[^\"]+)\":\\s*\\{[\\s\\S]*?\"repo\":\\s*\"(?<registryUrl>https://[^\"]+)\",[\\s\\S]*?\"version\":\\s*\"(?<currentValue>[^\"]+)\"",
+        "\"version\":\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "helm",
+      "registryUrlTemplate": "{{registryUrl}}",
+      "autoReplaceStringTemplate": "\"version\": \"{{{newValue}}}\""
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)dependencies\\.json/"],
+      "matchStringsStrategy": "recursive",
+      "matchStrings": [
+        "\"(?<depName>[^\"]+)\":\\s*\\{\\s*\"chart\":\\s*\"[^\"]+\",\\s*\"repo\":\\s*\"oci://(?<registryUrl>[^/]+)/(?<org>[^\"]+)\",[\\s\\S]*?\"version\":\\s*\"(?<currentValue>[^\"]+)\"",
+        "\"version\":\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "docker",
+      "packageNameTemplate": "{{org}}/{{depName}}",
+      "autoReplaceStringTemplate": "\"version\": \"{{{newValue}}}\""
+    }
+  ]
+}
